@@ -34,7 +34,20 @@ cp sample.env .env
 // modify sample.env as needed
 docker-compose up -d
 // visit localhost
+// run nodejs 
+docker-compose run --rm node
+docker-compose run --rm npm
+
+//
+docker-compose run webserver bash
+//
 ```
+- For different lamp stack please run:
+
+- - for old lamp server with [home](http://localhost:8071) [mysqlPhpAdmin](http://localhost:8071)  
+
+```  ```
+
 
 Your LAMP stack is now ready!! You can access it via `http://localhost`.
 

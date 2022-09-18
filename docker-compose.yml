@@ -45,6 +45,7 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    command: ['mysqld', '--character-set-server=utf8', '--collation-server=utf8_unicode_ci']
   phpmyadmin:
     image: phpmyadmin
     container_name: "${COMPOSE_PROJECT_NAME}-phpmyadmin"
@@ -71,3 +72,15 @@ services:
     image: redis:latest
     ports:
       - "127.0.0.1:${HOST_MACHINE_REDIS_PORT}:6379"
+  node:
+    image: node:14
+    working_dir: /var/www/html
+    entrypoint: ["node"]
+    volumes:
+      - ${DOCUMENT_ROOT-./www}:/var/www/html:rw
+  npm:
+    image: node:14
+    working_dir: /var/www/html
+    entrypoint: [ "npm" ]
+    volumes:
+      - ${DOCUMENT_ROOT-./www}:/var/www/html:rw
