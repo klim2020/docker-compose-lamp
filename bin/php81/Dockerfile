@@ -89,6 +89,14 @@ libpng-dev && \
     docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg && \
     docker-php-ext-install gd
 
+#install nodejs
+RUN apt-get update &&  apt-get install -y ca-certificates curl gnupg
+RUN NODE_MAJOR=16
+RUN curl -sL https://deb.nodesource.com/setup_$NODE_MAJOR.x
+RUN apt-get update &&  apt-get install nodejs -y
+RUN apt-get install npm -y
+
+
 # Insure an SSL directory exists
 RUN mkdir -p /etc/apache2/ssl
 
