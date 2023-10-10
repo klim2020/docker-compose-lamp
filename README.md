@@ -310,4 +310,8 @@ In Production you should modify at a minimum the following subjects:
 add rights
 chmod g+w -R ./
 
+find www -type d -exec chmod 775 {} \;
+sudo chown -R www-data:www-data www
+find www -type f -exec chmod 664 {} \;
+
 
