@@ -66,6 +66,10 @@ RUN docker-php-ext-install pdo_mysql && \
     docker-php-ext-install calendar && \
     docker-php-ext-install exif
 
+RUN  apt-get update && apt-get install -y libmcrypt-dev
+
+RUN  pecl install mcrypt-1.0.4
+RUN docker-php-ext-enable mcrypt
 
 # Install Freetype 
 RUN apt-get -y update && \

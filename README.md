@@ -314,4 +314,6 @@ find www -type d -exec chmod 775 {} \;
 sudo chown -R www-data:www-data www
 find www -type f -exec chmod 664 {} \;
 
+sudo chown -R 1000:1000 www
+
 
