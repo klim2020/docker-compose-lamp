@@ -1,0 +1,17 @@
+Index: www/oc38/system/library/cart/cart.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/www/oc38/system/library/cart/cart.php b/www/oc38/system/library/cart/cart.php
+--- a/www/oc38/system/library/cart/cart.php	
++++ b/www/oc38/system/library/cart/cart.php	(date 1671352026549)
+@@ -12,7 +12,7 @@
+ 		$this->weight = $registry->get('weight');
+ 
+ 		// Remove all the expired carts with no customer ID
+-		$this->db->query("DELETE FROM " . DB_PREFIX . "cart WHERE (api_id > '0' OR customer_id = '0') AND date_added < DATE_SUB(NOW(), INTERVAL 1 HOUR)");
++		$this->db->query("DELETE FROM " . DB_PREFIX . "cart WHERE (api_id > '0' OR customer_id = '0') AND date_added < DATE_SUB(NOW(), INTERVAL 1 MONTH)");
+ 
+ 		if ($this->customer->getId()) {
+ 			// We want to change the session ID on all the old items in the customers cart

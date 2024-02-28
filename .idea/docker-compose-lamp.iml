@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/www/oc21/system/library" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/www/oc23/system/library" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/www/oc38/system/library" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/www/oc38/system/storage/modification/system/library" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/www/oc3tdd/system/library" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/www/oc3tdd/system/storage/modification/system/library" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/www/oc40" isTestSource="false" packagePrefix="Opencart" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
