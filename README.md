@@ -317,3 +317,9 @@ find www -type f -exec chmod 664 {} \;
 sudo chown -R 1000:1000 www
 
 
+ngrok
+ngrok config add-authtoken 54zu5Sxmq3UHh5BgLtpR4_4XyxmaDdXWVZiTtbbXN86
+ngrok http --domain=right-comic-starling.ngrok-free.app 8071
+
+
+
