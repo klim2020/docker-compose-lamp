@@ -8,7 +8,7 @@ class ControllerCheckoutSuccess extends Controller {
           
            /*qwqer Module additional field saving*/
           
-            $this->load->model('shipping/qwqer');
+            $this->load->model('extension/shipping/qwqer');//
             $this->load->model('account/order');
             $order_info =  $this->session->data;
             //qwqer.omnivaparcelterminal
