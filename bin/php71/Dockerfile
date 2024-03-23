@@ -1,9 +1,10 @@
 FROM php:7.1.20-apache
 
-RUN rm /etc/apt/sources.list
-# Replace with this list.
-RUN echo 'deb http://archive.debian.org/debian/ stretch main contrib non-free\ndeb http://archive.debian.org/debian/ stretch-proposed-updates main contrib non-free\ndeb http://archive.debian.org/debian-security stretch/updates main contrib non-free' >> /etc/apt/sources.list
-#RUN sed -i s/deb.debian.org/archive.debian.org/g /etc/apt/sources.list
+# Fix the source.list for stretch
+RUN printf "deb http://archive.debian.org/debian/ stretch main\n" > /etc/apt/sources.list && \
+    printf "deb-src http://archive.debian.org/debian/ stretch main\n" >>  /etc/apt/sources.list && \
+    printf "deb http://archive.debian.org/debian-security stretch/updates main\n" >>  /etc/apt/sources.list && \
+    printf "deb-src http://archive.debian.org/debian-security stretch/updates main" >>  /etc/apt/sources.list
 
 RUN apt-get -y update --fix-missing
 RUN apt-get upgrade -y
@@ -34,6 +35,7 @@ RUN docker-php-ext-install mysqli
 RUN docker-php-ext-install curl
 RUN docker-php-ext-install tokenizer
 RUN docker-php-ext-install json
+RUN docker-php-ext-install bcmath
 
 RUN apt-get -y install zlib1g-dev
 RUN docker-php-ext-install zip
