@@ -23,6 +23,10 @@ class ModelExtensionShippingQwqer extends Model {
 	public function getQuote($address) {
 		$this->load->language('extension/shipping/qwqer');
 
+        foreach ($this->language->all() as $key=>$lang_val){
+            $lang[$key] = htmlentities($lang_val);
+        }
+
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "zone_to_geo_zone WHERE geo_zone_id = '" . (int)$this->config->get('qwqer_geo_zone_id') . "' AND country_id = '" . (int)$address['country_id'] . "' AND (zone_id = '" . (int)$address['zone_id'] . "' OR zone_id = '0')");
 
 		if (!$this->config->get('qwqer_geo_zone_id')) {
@@ -35,12 +39,12 @@ class ModelExtensionShippingQwqer extends Model {
 
          //check if product have restricted stock status
          $statuses = array();
-         $statuses = $this->config->get('qwqer_hide_statuses');
+         //$statuses = $this->config->get('qwqer_hide_statuses');
          foreach ($this->cart->getProducts() as $product) {
              $status = $this->getProductStatusId($product['product_id']);
-             if (in_array($status, $statuses)) {
-                 $status = false;
-             }
+             //if (in_array($status, $statuses)) {
+             //    $status = false;
+             //}
 
              $error = '';
 
@@ -52,137 +56,160 @@ class ModelExtensionShippingQwqer extends Model {
                  $length = 0;
                  $width = 0;
                  $height = 0;
-
-                 if ($address['iso_code_2'] == 'LV') {
-
-                     $data_orders = $this->shipping_qwqer->generateOrderObjects($address, $this->shipping_qwqer->getDeliveryTypes());
-                     if (!count($data_orders)) {
-                         return array();
-                     }
-                     foreach ($data_orders as $key => $data_order) {
-                         $params = array();
-                         if ($data_order['real_type'] == "OmnivaParcelTerminal") {
-                             $params['parcel_size'] = 'L';
-                         }
-                         $ret = $this->shipping_qwqer->calculatePrice($data_order, $params);
-                         if (isset($ret['error'])) {
-                             continue;
-                         }
-                         $prices[$key] = $ret;
-                     }
+                     $data_types = $this->shipping_qwqer->getDeliveryTypes();
+                     //if (!count($data_orders)) {
+                     //    return array();
+                     //}
+                     //foreach ($data_orders as $key => $data_order) {
+                     //    $params = array();
+                     //    if ($data_order['real_type'] == "OmnivaParcelTerminal") {
+                     //        $params['parcel_size'] = 'L';
+                     //    }
+                     //    $ret = $this->shipping_qwqer->calculatePrice($data_order, $params);
+                     //    if (isset($ret['error'])) {
+                     //        continue;
+                     //    }
+                     //    $prices[$key] = $ret;
+                     //}
                      //if there are no services available
-                     if (!count($prices)) {
-                         return array();
-                     }
+                     //if (!count($prices)) {
+                     //    return array();
+                     //}
 
-                     $data = array();
+                     //$data = array();
 
+                     //foreach ($prices as $key => $price) {
+                     //    if (!isset($price['data']["real_type"])) {
+                     //        continue;
+                     //    }
+                     //    $var = $this->language->get('text_title_' . $price['data']["real_type"]);
+                     //    $key_r = mb_strtolower($price['data']["real_type"]);
+                     //    if ($key_r == 'omnivaparcelterminal' && $this->request->get['route'] != 'api/shipping/methods') {
+                     //        $terminals = $this->shipping_qwqer->getParcelTerminals();
+                     //        if (isset($terminals['data']["omniva"]) && $terminals['data']["omniva"]) {
+                     //            //$this->document->addStyle('catalog/view/stylesheet/qwqer/autocomplete.min.css');
+                     //            $order_id = false;
+                     //            if (isset($this->session->data['order_id'])) {
+                     //                $order_id = $this->session->data['order_id'];
+                     //            }
+                     //            $s_id = false;
+//
+                     //            if (isset($this->request->post["autoComplete"])) {
+                     //                $autocomplete = $this->request->post["autoComplete"];
+                     //                $this->session->data["autoComplete"] = $autocomplete;
+                     //            } else {
+                     //                $autocomplete = '';
+                     //            }
+//
+                     //            if (isset($this->request->post["autoCompleteHidden"])) {
+                     //                $autocompletehidden = $this->request->post["autoCompleteHidden"];
+                     //                $this->session->data["autoCompleteHidden"] = $autocompletehidden;
+                     //            } else {
+                     //                $autocompletehidden = '';
+                     //            }
+//
+//
+                     //            $template = $this->load->view('extension/shipping/qwqer', array(
+                     //                'text_select_box' => $this->language->get('text_select_box'),
+                     //                'text_title_order_type' => $var,
+                     //                'terminals' => $terminals['data']["omniva"],
+                     //                'order_id' => $order_id,
+                     //                'session_id' => $s_id,
+                     //                'autocomplete' => $autocomplete,
+                     //                'autocompletehidden' => $autocompletehidden));
+                     //        } else {
+                     //            $template = $this->load->view('extension/shipping/qwqer', array('text_title_order_type' => $var));
+                     //        }
+                     //    } else {
+                            // $template = $this->load->view('extension/shipping/qwqer', array('text_title_order_type' => $var));
+                     //    }
+//
+//
+                     //    $calculate = $this->currency->convert($price['data']['client_price'] / 100, 'EUR', $this->session->data['currency']);
+                     //    $text = $this->currency->format($calculate,
+                     //        $this->session->data['currency'],
+                     //        $this->config->get('config_tax'));
+//
+                     //    $quote_data[$key_r] = array(
+                     //        'code' => 'qwqer.' . $key_r,
+                     //        'title' => $template,
+                     //        'cost' => $this->currency->convert($price['data']['client_price'] / 100, 'EUR', $this->config->get('config_currency')),
+                     //        'tax_class_id' => $this->config->get('qwqer_tax_class_id'),
+                     //        'text' => $text
+                     //    );
+                     //}
+//
+                     //if (!count($quote_data)) {
+                     //    $method_data = array();
+                     //} else {
+                     //    $method_data = array(
+                     //        'code' => 'qwqer.standart',
+                     //        'title' => $this->language->get('text_title') . '<a href = "https://qwqer.lv/" target="_blank"><img src="catalog/view/images/qwqer.svg" alt="Qwqer service home page" style="margin-left:5px"></a>',
+                     //        'quote' => $quote_data,
+                     //        'sort_order' => $this->config->get('qwqer_sort_order'),
+                     //        'error' => $error,
+                     //    );
+                     //}
+                     foreach ($data_types as $type){
 
-                     foreach ($prices as $key => $price) {
-                         if (!isset($price['data']["real_type"])) {
-                             continue;
-                         }
-                         $var = $this->language->get('text_title_' . $price['data']["real_type"]);
-                         $key_r = mb_strtolower($price['data']["real_type"]);
-                         if ($key_r == 'omnivaparcelterminal' && $this->request->get['route'] != 'api/shipping/methods') {
-                             $terminals = $this->shipping_qwqer->getParcelTerminals();
-                             if (isset($terminals['data']["omniva"]) && $terminals['data']["omniva"]) {
-                                 //$this->document->addStyle('catalog/view/stylesheet/qwqer/autocomplete.min.css');
-                                 $order_id = false;
-                                 if (isset($this->session->data['order_id'])) {
-                                     $order_id = $this->session->data['order_id'];
-                                 }
-                                 $s_id = false;
-
-                                 if (isset($this->request->post["autoComplete"])) {
-                                     $autocomplete = $this->request->post["autoComplete"];
-                                     $this->session->data["autoComplete"] = $autocomplete;
-                                 } else {
-                                     $autocomplete = '';
-                                 }
-
-                                 if (isset($this->request->post["autoCompleteHidden"])) {
-                                     $autocompletehidden = $this->request->post["autoCompleteHidden"];
-                                     $this->session->data["autoCompleteHidden"] = $autocompletehidden;
-                                 } else {
-                                     $autocompletehidden = '';
-                                 }
-
-
-                                 $template = $this->load->view('extension/shipping/qwqer', array(
-                                     'text_select_box' => $this->language->get('text_select_box'),
-                                     'text_title_order_type' => $var,
-                                     'terminals' => $terminals['data']["omniva"],
-                                     'order_id' => $order_id,
-                                     'session_id' => $s_id,
-                                     'autocomplete' => $autocomplete,
-                                     'autocompletehidden' => $autocompletehidden));
-                             } else {
-                                 $template = $this->load->view('extension/shipping/qwqer', array('text_title_order_type' => $var));
-                             }
-                         } else {
-                             $template = $this->load->view('extension/shipping/qwqer', array('text_title_order_type' => $var));
-                         }
-
-
-                         $calculate = $this->currency->convert($price['data']['client_price'] / 100, 'EUR', $this->session->data['currency']);
-                         $text = $this->currency->format($calculate,
-                             $this->session->data['currency'],
-                             $this->config->get('config_tax'));
-
+                         $key_r = mb_strtolower($type);
+                         $template = $this->load->view('extension/shipping/qwqer', array('text_title_order_type' => $type, 'langs'=>$lang));
+                         $price = $this->currency->convert(300 / 100, 'EUR', $this->config->get('config_currency'));
                          $quote_data[$key_r] = array(
                              'code' => 'qwqer.' . $key_r,
                              'title' => $template,
-                             'cost' => $this->currency->convert($price['data']['client_price'] / 100, 'EUR', $this->config->get('config_currency')),
+                             'cost' => ($key_r!=='expressdelivery')?$price:"0",//$this->currency->convert(300 / 100, 'EUR', $this->config->get('config_currency')),
                              'tax_class_id' => $this->config->get('qwqer_tax_class_id'),
-                             'text' => $text
+
+                             'text' => ($key_r!=='expressdelivery')?$this->currency->format($price,  $this->session->data['currency'], $this->config->get('config_tax')):"",
                          );
                      }
 
-                     if (!count($quote_data)) {
-                         $method_data = array();
+                     $token = rand(100000000,999999999);
+                     $this->session->data['qwqer_token']  = $token;
 
+                     if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) {
+                         $url = HTTPS_SERVER;
                      } else {
-                         $method_data = array(
-                             'code' => 'qwqer.standart',
-                             'title' => $this->language->get('text_title') . '<a href = "https://qwqer.lv/" target="_blank"><img src="catalog/view/images/qwqer.svg" alt="Qwqer service home page" style="margin-left:5px"></a>',
-                             'quote' => $quote_data,
-                             'sort_order' => $this->config->get('qwqer_sort_order'),
-                             'error' => $error,
-                         );
+                         $url  = HTTP_SERVER;
                      }
 
-
+                     $method_data = array(
+                         'code' => 'qwqer.standart',
+                         'title' => $this->load->view('extension/shipping/qwqer_title', array('text_title' => $this->language->get('text_title'), 'token'=>$token, 'langs'=>$lang,'url'=>$url)),//
+                         'quote' => $quote_data,
+                         'sort_order' => $this->config->get('qwqer_sort_order'),
+                         'error' => $error,
+                     );
                      return $method_data;
-
-                 }
              }
-
-             $method_data = array();
-
-             return $method_data;
-
+             return [];
          }
-
-
 	}
 
-    public function generateOrderObject($order_info){
-        $address = array();
-        foreach ($order_info as $key=>$value){
-            if (strpos($key,'shipping_') !== false){
-                $v = str_replace('shipping_','',$key);
-                $address[$v] = $value;
-            }
-        }
-        if($order_info['shipping_code'] == 'qwqer.omnivaparcelterminal'){
-            $new_destination = $this->getParcelAddress($order_info);
-            $address['new_destination'] = $new_destination;
-        }
-        $delivery_type = str_replace('qwqer.','',$address['code']);
+    //generates a propper valid object for Qwqer library
+    public function generateOrderObject($name,$phone,$address,$type){
+        $arr['code'] = $type;
+        //if($order_info['shipping_code'] == 'qwqer.omnivaparcelterminal'){
+        //    $new_destination = $this->getParcelAddress($order_info);
+        //    $address['new_destination'] = $new_destination;
+        //}
+        $delivery_type = str_replace('qwqer.','',$arr['code']);
         $delivery_types = $this->shipping_qwqer->getDeliveryTypes();
-        $address['telephone']=$order_info['telephone'];
-        $ret = $this->shipping_qwqer->generateOrderObjects($address,array($delivery_types[$delivery_type]));
+
+        $arr['telephone']  = $phone;
+        $arr['firstname']  = $name;
+        $arr['address_1']  = $address['name'];
+        $arr['iso_code_2'] = 'LV';
+        $arr['address_2'] = '';
+        $arr["lastname"] = '';
+        $arr['city'] = '';
+        if (isset($address['coordinates'])){
+            $arr['terminal'] = $address;
+        }
+
+
+        $ret = $this->shipping_qwqer->generateOrderObjects($arr,array($delivery_types[$delivery_type]));
         if (isset($ret[0])){
             return $ret[0];
         }
@@ -198,12 +225,16 @@ class ModelExtensionShippingQwqer extends Model {
     }
 
     public function  addOrderData($order_info){
-        if (isset($this->session->data['autoCompleteHidden'])){
-            $order_info['autoCompleteHidden'] = $this->session->data['autoCompleteHidden'];
-        }elseif(isset($this->request->data['autoCompleteHidden'])){
-            $order_info['autoCompleteHidden'] = $this->request->data['autoCompleteHidden'];
-        }
-        $data = json_encode($order_info);
+
+        $data['shipping_address'] =  $order_info['shipping_address'];
+        $data['payment_method'] =  $order_info['payment_method'];
+        $data['order_id'] =  $order_info['order_id'];
+        $data['qwqer'] =  $order_info['qwqer'];
+        $data['qwqer_price'] =  $order_info['qwqer_price'];
+        $data['shipping_method'] =  $order_info['shipping_method'];
+        $data['date_added']  = date('Y-m-d H:i');
+        $data = json_encode($data);
+        //$data = trim( addslashes( json_encode( $order_info ) ) );
         $str = "SELECT COUNT(*) AS  total FROM " . DB_PREFIX . "qwqer_data where `order_id` = " . $order_info['order_id'];
         $isOrderExist = $this->db->query($str)->rows[0]['total'];
         if ($isOrderExist){
@@ -239,6 +270,8 @@ class ModelExtensionShippingQwqer extends Model {
     public  function  getProductStatusId($id){
         return $this->db->query("SELECT `stock_status_id` FROM " .DB_PREFIX. "product WHERE `product_id` = {$id} limit 1")->rows[0]['stock_status_id'];
     }
+
+
 
 
 }

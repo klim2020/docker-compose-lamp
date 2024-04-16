@@ -1,0 +1,2764 @@
+2024-03-14 5:21:04 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 366
+LINE: 421
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 132
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+2024-03-14 5:22:01 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 366
+LINE: 421
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 132
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+2024-03-14 5:22:45 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 366
+LINE: 421
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 132
+
+FILE: catalog/view/theme/unishop2/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 168
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+2024-03-14 5:23:01 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 366
+LINE: 421
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 132
+
+FILE: catalog/view/theme/unishop2/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 168
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+
+FILE: (sub modification) system/library/template/twig.php
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: (sub modification) admin/controller/marketplace/modification.php
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+2024-03-14 5:26:20 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 366
+LINE: 417
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 132
+
+FILE: catalog/view/theme/unishop2/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 168
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+
+FILE: (sub modification) system/library/template/twig.php
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: (sub modification) admin/controller/marketplace/modification.php
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+2024-03-14 5:27:10 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 366
+LINE: 417
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 132
+
+FILE: catalog/view/theme/unishop2/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 168
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+
+FILE: (sub modification) system/library/template/twig.php
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: (sub modification) admin/controller/marketplace/modification.php
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+2024-03-14 5:28:23 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 366
+LINE: 417
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 132
+
+FILE: catalog/view/theme/unishop2/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 168
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+
+FILE: (sub modification) system/library/template/twig.php
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: (sub modification) admin/controller/marketplace/modification.php
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+2024-03-14 5:59:46 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 367
+LINE: 419
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 132
+
+FILE: catalog/view/theme/unishop2/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 168
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+2024-03-14 6:00:22 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 367
+LINE: 419
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 132
+
+FILE: catalog/view/theme/unishop2/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 168
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+2024-03-14 6:00:36 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 367
+LINE: 419
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 132
+
+FILE: catalog/view/theme/unishop2/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 168
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+
+FILE: (sub modification) system/library/template/twig.php
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: (sub modification) admin/controller/marketplace/modification.php
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+2024-03-14 6:01:08 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 367
+LINE: 419
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 132
+
+FILE: catalog/view/theme/unishop2/template/product/category.twig
+REGEX: /(\{\{ column_right \}\})/m
+LINE: 168
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+
+FILE: (sub modification) system/library/template/twig.php
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: (sub modification) admin/controller/marketplace/modification.php
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+2024-03-14 7:44:47 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 367
+LINE: 419
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ footer \}\})/m
+LINE: 134
+
+FILE: catalog/view/theme/unishop2/template/product/category.twig
+REGEX: /(\{\{ footer \}\})/m
+LINE: 213
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+2024-03-14 7:44:58 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 367
+LINE: 419
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ footer \}\})/m
+LINE: 134
+
+FILE: catalog/view/theme/unishop2/template/product/category.twig
+REGEX: /(\{\{ footer \}\})/m
+LINE: 213
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+
+FILE: (sub modification) system/library/template/twig.php
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: (sub modification) admin/controller/marketplace/modification.php
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+2024-03-14 10:26:56 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 367
+LINE: 419
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ footer \}\})/m
+LINE: 134
+
+FILE: catalog/view/theme/unishop2/template/product/category.twig
+REGEX: /(\{\{ footer \}\})/m
+LINE: 213
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+
+FILE: (sub modification) system/library/template/twig.php
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: (sub modification) admin/controller/marketplace/modification.php
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+2024-03-22 4:24:28 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: DEV-OPENCART.COM — SVG Support
+
+FILE: admin/model/tool/image.php
+CODE: IMAGETYPE_GIF)))
+LINE: 15
+CODE: $this->request->server['HTTPS']
+LINE: 59
+
+FILE: catalog/model/tool/image.php
+CODE: IMAGETYPE_GIF)))
+LINE: 15
+CODE: $this->request->server['HTTPS']
+LINE: 102
+
+FILE: admin/controller/common/filemanager.php
+CODE: {jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}
+LINE: 47
+CODE: 'png'
+LINE: 246
+CODE: 'image/gif'
+LINE: 262
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 367
+LINE: 419
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ footer \}\})/m
+LINE: 134
+
+FILE: catalog/view/theme/unishop2/template/product/category.twig
+REGEX: /(\{\{ footer \}\})/m
+LINE: 213
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+
+FILE: (sub modification) system/library/template/twig.php
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: (sub modification) admin/controller/marketplace/modification.php
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+2024-03-22 4:29:47 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 367
+LINE: 419
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ footer \}\})/m
+LINE: 134
+
+FILE: catalog/view/theme/unishop2/template/product/category.twig
+REGEX: /(\{\{ footer \}\})/m
+LINE: 213
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+
+FILE: (sub modification) system/library/template/twig.php
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: (sub modification) admin/controller/marketplace/modification.php
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+2024-03-22 4:31:09 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 367
+LINE: 419
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ footer \}\})/m
+LINE: 134
+
+FILE: catalog/view/theme/unishop2/template/product/category.twig
+REGEX: /(\{\{ footer \}\})/m
+LINE: 213
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+2024-03-22 4:49:50 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 367
+LINE: 419
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ footer \}\})/m
+LINE: 134
+
+FILE: catalog/view/theme/unishop2/template/product/category.twig
+REGEX: /(\{\{ footer \}\})/m
+LINE: 213
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+2024-03-22 4:50:00 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 367
+LINE: 419
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ footer \}\})/m
+LINE: 134
+
+FILE: catalog/view/theme/unishop2/template/product/category.twig
+REGEX: /(\{\{ footer \}\})/m
+LINE: 213
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+
+FILE: (sub modification) system/library/template/twig.php
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: (sub modification) admin/controller/marketplace/modification.php
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+2024-03-22 4:50:20 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: if (is_file($file)) {
+LINE: 13
+----------------------------------------------------------------
+MOD: 2 simple url rewrite
+
+FILE: catalog/controller/startup/startup.php
+CODE: $this->registry->set('url'
+LINE: 47
+
+FILE: catalog/controller/checkout/simplecheckout.php
+CODE: public function index(
+LINE: 16
+
+FILE: catalog/model/tool/simpleapimain.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/model/tool/simpleapicustom.php
+CODE: extends Model {
+LINE: 168
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout.twig
+CODE: {% include simple_footer %}
+LINE: 594
+
+FILE: catalog/view/theme/default/template/checkout/simplecheckout_shipping.twig
+CODE: </label>
+LINE: 53
+----------------------------------------------------------------
+MOD: Features Block
+
+FILE: catalog/controller/product/category.php
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 367
+LINE: 419
+
+FILE: catalog/view/theme/default/template/product/category.twig
+REGEX: /(\{\{ footer \}\})/m
+LINE: 134
+
+FILE: catalog/view/theme/unishop2/template/product/category.twig
+REGEX: /(\{\{ footer \}\})/m
+LINE: 213
+----------------------------------------------------------------
+MOD: Fix opencart 3 installer folder limitation
+
+FILE: admin/controller/marketplace/install.php
+CODE: $safe = false;
+LINE: 146
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 215
+----------------------------------------------------------------
+MOD: likeDev - wishlist without login
+
+FILE: catalog/controller/account/wishlist.php
+CODE: if (!$this->customer->isLogged()) {
+LINE: 3
+CODE: if (isset($this->request->get['remove'])) {
+LINE: 21
+CODE: $data['products'] = array();
+LINE: 58
+CODE: $this->model_account_wishlist->deleteWishlist($result['product_id']);
+LINE: 157
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 208
+CODE: $json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+LINE: 207
+
+FILE: catalog/controller/common/header.php
+CODE: $data['text_wishlist'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+LINE: 51
+----------------------------------------------------------------
+MOD: LIVEOPENCART: OCMod and Twig Fix for 3.0.3.5(6) Refresh twice!
+
+FILE: admin/controller/marketplace/modification.php
+CODE: $xml[] = file_get_contents(DIR_SYSTEM . 'modification.xml');
+LINE: 120
+
+FILE: (sub modification) system/library/template/twig.php
+CODE: $loader = new \Twig\Loader\ArrayLoader(array($filename . '.twig' => $code));
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: OCMOD Editor for OpenCart 3.0
+
+FILE: admin/controller/startup/permission.php
+CODE: $extension = array(
+LINE: 18
+
+FILE: (sub modification) admin/controller/marketplace/modification.php
+CODE: public function index() {
+LINE: 18
+CODE: $data['refresh'] = $this->url->link('marketplace/modification/refresh', 'user_token=' . $this->session->data['user_token'] . $url, true);
+LINE: 682
+CODE: $data['modifications'][] = array(
+LINE: 704
+CODE: public function index() {
+LINE: 10
+CODE: $this->response->redirect($this->url->link('marketplace/modification', 'user_token=' . $this->session->data['user_token'] . $url, true));
+LINE: 529
+
+FILE: admin/view/template/marketplace/modification.twig
+CODE: <div class="pull-right">
+LINE: 5
+CODE: {% if not modification.enabled %}
+LINE: 96
+----------------------------------------------------------------
+MOD: QwQer Shipping service module
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 27
+----------------------------------------------------------------
+MOD: SVG Support
+
+FILE: admin/model/tool/image.php
+CODE: IMAGETYPE_GIF)))
+LINE: 15
+CODE: $this->request->server['HTTPS']
+LINE: 59
+
+FILE: catalog/model/tool/image.php
+CODE: IMAGETYPE_GIF)))
+LINE: 15
+CODE: $this->request->server['HTTPS']
+LINE: 102
+
+FILE: admin/controller/common/filemanager.php
+CODE: {jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}
+LINE: 47
+CODE: 'png'
+LINE: 246
+CODE: 'image/gif'
+LINE: 262
+----------------------------------------------------------------

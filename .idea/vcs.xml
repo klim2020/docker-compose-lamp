@@ -2,6 +2,11 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/www/OLXRSS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/www/Opencart-v.1.5.6.5-V-PRO-Install-PHP-v.7.4.30" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/www/oc38" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/www/oc3tdd" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/www/toptest.fun" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/www/toptest.fun/www/cron" vcs="Git" />
   </component>
 </project>

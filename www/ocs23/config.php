@@ -1,9 +1,15 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://localhost:8071/ocs23/');
 
+if (strpos($_SERVER['HTTP_HOST'],'right-comic-starling.ngrok-free.app') !== false){
+    $url='https://right-comic-starling.ngrok-free.app';
+}elseif (strpos($_SERVER['HTTP_HOST'],'localhost:8071')!== false){
+    $url='http://localhost:8071';
+}else{die(';');}
+
+define('HTTP_SERVER', $url.'/ocs23/');
 // HTTPS
-define('HTTPS_SERVER', 'http://localhost:8071/ocs23/');
+define('HTTPS_SERVER', $url.'/ocs23/');
 
 // DIR
 define('DIR_APPLICATION', '/var/www/html/ocs23/catalog/');

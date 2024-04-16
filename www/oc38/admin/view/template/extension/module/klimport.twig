@@ -1,0 +1,22 @@
+{{ header }}{{ column_left }}
+<div id="content">
+	<form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-unixml" class="form-horizontal">
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="unixml_{{ feed }}_status" title="Статус при который будет включена или выключена выгрузка {{ feed }}" data-toggle="tooltip">
+				<span>{{ entry_status }}</span>
+			</label>
+			<div class="col-sm-10">
+				<select id="unixml_{{ feed }}_status" name="unixml_{{ feed }}_status" class="form-control">
+					{% if (attribute(_context, 'unixml_'~feed~'_status')) %}
+						<option value="1" selected="selected">{{ text_enabled }}</option>
+						<option value="0">{{ text_disabled }}</option>
+					{% else %}
+						<option value="1">{{ text_enabled }}</option>
+						<option value="0" selected="selected">{{ text_disabled }}</option>
+					{% endif %}
+				</select>
+			</div>
+		</div>
+	</form>
+</div>
+{{ footer }}

@@ -1,0 +1,53 @@
+<div class="slider-manufacturer">
+    <div class="row">
+        <div class="col-12 rm-module-header">
+            <h3>{{ header }}</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="slideshow swiper-viewport">
+                <div id="slideshow{{ module }}" class="swiper-container">
+                    <div class="swiper-wrapper">
+                        {% for manufacturer in manufacturers %}
+                            <div style="width:{{ width }};height:{{ height }}" class="swiper-slide text-center">
+                                {% if manufacturer.link %}
+                                    <a href="{{ manufacturer.link }}"><img src="{{ manufacturer.image }}" alt="{{ manufacturer.name }}" class="img-responsive" /></a>
+                                {% else %}
+                                    <img src="{{ manufacturer.image }}" alt="{{ manufacturer.name }}" class="img-responsive" />
+                                {% endif %}
+                            </div>
+                        {% endfor %} </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript"><!--
+
+    $(document).ready(function(){
+        new Swiper('#slideshow{{ module }}',{
+            mode: 'horizontal',
+            //autoHeight: true,
+            slidesPerView: 'auto',
+            paginationClickable: true,
+            nextButton: '.slideshow .swiper-button-tnext',
+            prevButton: '.slideshow .swiper-button-tprev',
+            spaceBetween: {{ spaceBetween }},
+            autoplay:{
+                delay: {{ autoplay }}
+            },
+            autoplayDisableOnInteraction: true,
+            loop: true
+        });
+    });
+    //--></script>
+<style>
+    .swiper-slide {
+        width: auto;
+    }
+    .swiper-container{
+        height: {{ height }}
+    }
+</style>
