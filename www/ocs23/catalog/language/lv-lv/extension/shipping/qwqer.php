@@ -2,8 +2,8 @@
 // Text
 
 $_['text_title']                         = 'QWQER piegāde';
-$_['text_title_ScheduledDelivery']       = 'Piegāde šovakar (18:00-22:00)';
-$_['text_title_ExpressDelivery']         = 'Ekspress piegāde (90 min)';
+$_['text_title_ScheduledDelivery']       = 'Šovakar (18:00-22:00)';
+$_['text_title_ExpressDelivery']         = 'Ekspress (90 min)';
 $_['text_title_OmnivaParcelTerminal']    = 'Omniva pakomāts šovakar (18:00-22:00)';
 $_['text_select_box']                    = 'Ievadiet adresi vai identifikātoru';
 $_['message_status_order_success']       = 'QWQER status: ✅ Pasūtījums tika veiksmīgi izveidots';
@@ -26,3 +26,5 @@ $_['qw_text_submit']                     = 'Iesniegt';
 $_['qw_text_submit_success']             = 'Visi dati ir derīgi';
 $_['qw_text_select_city']                = 'Lūdzu, izvēlieties pilsētu';
 $_['qw_text_loading']                    = 'Ielādējas...';
+
+$_['qw_text_noopts']                    = 'Nav variantu';

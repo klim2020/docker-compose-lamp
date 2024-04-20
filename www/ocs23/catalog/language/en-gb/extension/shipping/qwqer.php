@@ -1,10 +1,10 @@
 <?php
-// Text
+// Text https://docs.google.com/spreadsheets/d/1sYDxK0upTCm_n-8HtpzfhkteMLd1FgPHMijSIJ2HdBM/edit#gid=0
 
 $_['text_title']                        = 'QWQER Delivery';
-$_['text_title_ScheduledDelivery']      = 'Same-day delivery (18:00 - 22:00)';
-$_['text_title_ExpressDelivery']        = 'Express delivery (90 min)';
-$_['text_title_OmnivaParcelTerminal']   = 'Omniva parcel machine same-day delivery (18:00-22:00)';
+$_['text_title_ScheduledDelivery']      = 'Same-day (18:00 - 22:00)';
+$_['text_title_ExpressDelivery']        = 'Express (90 min)';
+$_['text_title_OmnivaParcelTerminal']   = 'Same-day Parcel Machine (18:00-22:00)';
 $_['text_select_box']                   = 'Enter Address or Id';
 $_['message_status_order_success']      = 'QWQER Status: ✅ Order created successfully';
 $_['message_status_order_error']        = 'QWQER Status: ❌ Order was not created';
@@ -26,3 +26,5 @@ $_['qw_text_submit']                    = 'Submit';
 $_['qw_text_submit_success']            = 'All data is valid';
 $_['qw_text_select_city']               = 'Please select city';
 $_['qw_text_loading']                   = 'Loading...';
+
+$_['qw_text_noopts']                    = 'No options';
