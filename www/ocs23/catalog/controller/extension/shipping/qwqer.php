@@ -11,7 +11,13 @@ class ControllerExtensionShippingQwqer extends Controller {
     }
 
     public function validate(){
-        return isset($this->request->get['qwqer_token']) && $this->request->get['qwqer_token'] == $this->session->data['qwqer_token'];
+        $key = isset($this->request->get['qwqer_token']) && $this->request->get['qwqer_token'] == $this->session->data['qwqer_token'];
+        if ($key){
+            return $key;
+        }else{
+            return false;
+        }
+
     }
 
     public function save_parcel_terminal(){
@@ -119,7 +125,9 @@ class ControllerExtensionShippingQwqer extends Controller {
             $json = ['error'=>'key invalid'];
         }else{
             $selected =     $this->request->post['selected'];
-            if ($this->request->post['selected'] && $this->session->data['qwqer_price'][$selected]){
+            $price =  $this->shipping_qwqer->generateDeliveryCost($selected);
+            $selected = str_replace('qwqer.','',$selected);
+            if ($this->request->post['selected'] && $price){
                 unset($this->session->data['qwqer_price'][$selected]);
                 $json = ['message'=>'success','reboot'=>true];
             }else{
