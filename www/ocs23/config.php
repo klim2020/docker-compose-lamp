@@ -1,6 +1,4 @@
 <?php
-// HTTP
-
 if (strpos($_SERVER['HTTP_HOST'],'right-comic-starling.ngrok-free.app') !== false){
     $url='https://right-comic-starling.ngrok-free.app';
 }elseif (strpos($_SERVER['HTTP_HOST'],'localhost:8071')!== false){
@@ -10,6 +8,7 @@ if (strpos($_SERVER['HTTP_HOST'],'right-comic-starling.ngrok-free.app') !== fals
 define('HTTP_SERVER', $url.'/ocs23/');
 // HTTPS
 define('HTTPS_SERVER', $url.'/ocs23/');
+
 
 // DIR
 define('DIR_APPLICATION', '/var/www/html/ocs23/catalog/');
