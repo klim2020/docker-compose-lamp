@@ -88,6 +88,7 @@
                 window.shipping_qwqer.insertUrlParam(k,v)
             })
         }
+        console.log("reload");
         window.location.reload();
     }
 
@@ -108,7 +109,6 @@
         const newUrl = r.href
         window.history.pushState({ path: newUrl }, '', newUrl)
     }
-
 
     document.querySelector("#acjs").addEventListener("load",()=>{
 
@@ -138,6 +138,8 @@
             })
         })
     })
+
+    window.shipping_qwqer.prices = JSON.parse(`<?php echo $prices; ?>`);
 
     window.shipping_qwqer.moduleType = '<?php echo $moduleType; ?>';
 </script>
